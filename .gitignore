@@ -1,0 +1,98 @@
+# backup of nested .git repositories
+.git_backups/
+# ===============================
+# Node / npm
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===============================
+# Environment variables
+# ===============================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===============================
+# Build outputs
+# ===============================
+dist/
+build/
+
+# ===============================
+# Vite
+# ===============================
+.vite/
+
+# ===============================
+# OS / Editor files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# VS Code
+# ===============================
+.vscode/
+!.vscode/extensions.json
+
+# ===============================
+# Logs
+# ===============================
+logs
+*.log
+
+# ===============================
+# MongoDB
+# ===============================
+mongodb-data/
+# ===============================
+# Package managers
+# ===============================
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ===============================
+# IDE / Editor
+# ===============================
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# ===============================
+# OS specific
+# ===============================
+.DS_Store
+Thumbs.db
+*.exe
+*.lnk
+
+# ===============================
+# Testing
+# ===============================
+coverage/
+.nyc_output/
+
+# ===============================
+# Temporary files
+# ===============================
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ===============================
+# Uploads / User generated content
+# ===============================
+uploads/
+public/uploads/

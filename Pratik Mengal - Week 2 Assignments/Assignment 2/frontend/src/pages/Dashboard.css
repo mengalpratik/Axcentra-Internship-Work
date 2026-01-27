@@ -1,0 +1,124 @@
+.dashboard {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b1020, #020617);
+  color: #e5e7eb;
+  padding: 24px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* HEADER */
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.status.online {
+  color: #22c55e;
+  text-shadow: 0 0 8px rgba(34,197,94,0.6);
+}
+
+/* ALERT */
+.alert {
+  background: rgba(220,38,38,0.15);
+  border: 1px solid rgba(220,38,38,0.4);
+  color: #f87171;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  animation: pulse 1s infinite;
+}
+
+/* GRID */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* TERMINAL */
+.terminal {
+  background: rgba(0,0,0,0.65);
+  border-radius: 14px;
+  padding: 20px;
+  height: 380px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 35px rgba(0,0,0,0.85);
+}
+
+.terminal p {
+  font-size: 13px;
+  color: #22c55e;
+  margin-bottom: 6px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+/* GRAPH */
+.graph {
+  background: rgba(0,0,0,0.75);
+  border-radius: 14px;
+  padding: 20px;
+  height: 380px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 45px rgba(0,0,0,0.85);
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.stats div {
+  text-align: center;
+}
+
+.stats span {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.stats strong {
+  font-size: 18px;
+  color: #22c55e;
+}
+
+/* ECG */
+.ecg {
+  width: 220%;
+  height: 100%;
+  animation: ecgScroll 3s linear infinite;
+}
+
+.ecg-line {
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 6px #22c55e);
+}
+
+/* ANIMATIONS */
+@keyframes ecgScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+}

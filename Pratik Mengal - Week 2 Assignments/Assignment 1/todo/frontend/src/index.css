@@ -1,0 +1,402 @@
+/* ===============================
+   WHITE GLASS FUTURISTIC THEME
+   =============================== */
+
+:root {
+  --bg-main: radial-gradient(circle at top, #0b1020, #020617);
+
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-bg-strong: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.35);
+
+  --text-main: #f8fafc;
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --accent-soft: rgba(255, 255, 255, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-repeat: repeat;
+  animation: starsMove 120s linear infinite;
+}
+
+/* Small stars */
+body::before {
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 80% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 10% 80%, white, transparent),
+    radial-gradient(1px 1px at 90% 20%, white, transparent);
+  background-size: 200px 200px;
+  opacity: 0.4;
+}
+
+/* Bigger glowing stars */
+body::after {
+  background-image:
+    radial-gradient(2px 2px at 30% 40%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 70% 60%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,0.6), transparent);
+  background-size: 400px 400px;
+  opacity: 0.25;
+}
+
+@keyframes starsMove {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-2000px); }
+}
+
+
+/* ===============================
+   PAGE BASE
+   =============================== */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  padding: 30px;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Ubuntu, sans-serif;
+}
+
+/* ===============================
+   HEADING
+   =============================== */
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+
+  font-family: "Orbitron", system-ui, sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.95);
+
+  /* Glow */
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.4),
+    0 0 14px rgba(255, 255, 255, 0.25);
+
+  animation: logoPulse 4s ease-in-out infinite;
+}
+@keyframes logoPulse {
+  0% {
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.35),
+      0 0 14px rgba(255, 255, 255, 0.2);
+    opacity: 0.85;
+  }
+
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.7),
+      0 0 26px rgba(255, 255, 255, 0.45);
+    opacity: 1;
+  }
+
+  100% {
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.35),
+      0 0 14px rgba(255, 255, 255, 0.2);
+    opacity: 0.85;
+  }
+}
+
+
+
+/* ===============================
+   TASK FORM (INPUTS)
+   =============================== */
+
+.task-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.task-form input {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+
+  color: var(--text-main);
+  font-size: 14px;
+
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.task-form input:focus {
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+/* ===============================
+   BUTTONS
+   =============================== */
+
+button {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 10px 16px;
+
+  color: var(--text-main);
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              background 0.25s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   TASK CARD (GLASS)
+   =============================== */
+
+.task-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+
+  padding: 14px 16px;
+  margin-bottom: 18px;
+
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease,
+              background 0.35s ease;
+}
+
+.task-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   TASK ROW (MAIN LINE)
+   =============================== */
+
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.task-row input[type="checkbox"] {
+  accent-color: white;
+  transform: scale(1.1);
+}
+
+/* Title */
+.task-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.task-title.done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Deadline – name ke baad, center feel */
+.task-deadline {
+  font-size: 13px;
+  color: #fca5a5;
+  white-space: nowrap;
+  margin-right: auto;
+}
+
+/* ===============================
+   ACTIONS (RIGHT END)
+   =============================== */
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.task-actions button {
+  background: transparent;
+  border: none;
+  padding: 6px;
+}
+
+.task-actions button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+
+/* ===============================
+   HOVER DETAILS (STACKED)
+   =============================== */
+
+.task-extra {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  transition: max-height 0.35s ease,
+              opacity 0.35s ease;
+}
+
+.task-card:hover .task-extra {
+  max-height: 70px;
+  opacity: 1;
+}
+
+/* Created date first */
+.task-created {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Description below */
+.task-desc {
+  line-height: 1.4;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+body::before {
+  animation:
+    starsMove 140s linear infinite,
+    twinkle 6s ease-in-out infinite;
+}
+
+body::after {
+  animation:
+    starsMove 200s linear infinite,
+    twinkle 10s ease-in-out infinite;
+}
+
+
+@media (max-width: 768px) {
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form input,
+  .task-form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .task-row {
+    flex-wrap: wrap;
+  }
+
+  .task-deadline {
+    margin-right: 0;
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+  }
+
+  .task-actions {
+    margin-left: auto;
+  }
+}
+
+/* ===============================
+   STARFIELD BACKGROUND
+   =============================== */
+
+.star-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+.star-layer.small {
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, white, transparent),
+    radial-gradient(1px 1px at 30% 80%, white, transparent),
+    radial-gradient(1px 1px at 50% 40%, white, transparent),
+    radial-gradient(1px 1px at 70% 60%, white, transparent),
+    radial-gradient(1px 1px at 90% 10%, white, transparent);
+  background-size: 120px 120px;
+  opacity: 0.8;
+  animation: twinkleSmall 4s infinite ease-in-out;
+}
+
+.star-layer.medium {
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(2px 2px at 80% 40%, rgba(255,255,255,0.85), transparent);
+  background-size: 300px 300px;
+  opacity: 0.7;
+  animation: twinkleMedium 6s infinite ease-in-out;
+}
+
+.star-layer.big {
+  background-image:
+    radial-gradient(3px 3px at 40% 50%, rgba(255,255,255,1), transparent),
+    radial-gradient(3px 3px at 75% 25%, rgba(255,255,255,0.9), transparent);
+  background-size: 600px 600px;
+  opacity: 0.6;
+  animation: twinkleBig 8s infinite ease-in-out;
+}
+
+@keyframes twinkleSmall {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes twinkleMedium {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes twinkleBig {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
